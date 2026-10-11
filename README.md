@@ -15,12 +15,13 @@ Pages 已部署；完整驗收狀態與待本人測試項目請讀 [施工紀錄
 ## 目錄與維護
 
 - `index.html`：工坊入口，純 HTML/CSS，無資料存取。
-- `xiaomiancang/index.html`、`xiaorichang/index.html`：各自獨立的原應用程式。
+- `xiaomiancang/index.html`、`xiaorichang/index.html`：各自獨立的原應用程式（已加入工坊導航、footer 與捲動工具）。
 - `CHATGPT_BOOTSTRAP.md`：小雀接手入口。
 - `docs/MIGRATION_SOURCES.json`：來源 SHA、全部原 commit、檔案與 bundle 指紋。
 - `docs/history/`：兩套完整 Git bundle；保留原 SHA、作者、日期及 parent graph。
 
 沒有 build 或 npm 安裝需求。GitHub Pages 使用 `main` 根目錄，`.nojekyll` 保留靜態站部署行為。
+介面維護共用 `assets/site-chrome.css` 與 `assets/scroll-tools.js`；本次修改詳見 [介面更新](docs/UI_CHANGES_20261011.md)。
 新增作品時建立自己的子目錄，再加入首頁入口；不強行合併應用程式。
 
 ## 資料保護

@@ -2,6 +2,11 @@
 
 狀態：MIGRATED / PAGES_DEPLOYED / AUTHENTICATED_FUNCTIONS_AND_MOBILE_RUNTIME_PENDING。
 
+後續介面更新：[UI_CHANGES_20261011.md](UI_CHANGES_20261011.md)。
+以下原檔／tree／HTTP bytes 一致性驗證描述首次搬遷 checkpoint；
+之後已授權的導航、footer、favicon 與捲動工具修改以介面更新紀錄及最新 main 為準，
+不再把最新版頁面稱為與來源 index.html 完全相同。
+
 ## 保存與歷史 checkpoint
 
 - 起始 checkpoint：`20729fdbc52bebd8a433438b620def7f254b9efb`。
