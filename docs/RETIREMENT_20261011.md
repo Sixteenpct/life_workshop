@@ -6,8 +6,8 @@
 - 刪除前另行告知舊 Pages 停止，以及 GitHub Repo 的 Issues、Wiki、設定與執行記錄隨之刪除；Git bundle 只保存 Git 原始碼與歷史。
 - 小棉倉最新 main：`7351dd92ec5899350952ba7cb5ed00be5042976a`。
 - 小日倉最新 main：`617bc719f8803a127fe57571b671fbb739b261bf`。
-- 兩個最新來源 HEAD 與先前匯入版本相同，皆可從生活工坊 main 追溯；兩套完整 bundle verify 通過。
-- 刪除前生活工坊 checkpoint：`af0553885109b78793e2adbd6bfc495e3c4fd4e7`。
+- 兩個最新來源 HEAD 與先前匯入版本相同，皆可從LiouLiou 生活工坊 main 追溯；兩套完整 bundle verify 通過。
+- 刪除前LiouLiou 生活工坊 checkpoint：`af0553885109b78793e2adbd6bfc495e3c4fd4e7`。
 - GitHub Mobile 再驗證後，小棉倉刪除成功；GitHub 明確顯示 `Your repository "Sixteenpct/xiaomiancang" was successfully deleted.`。
 - 小日倉刪除成功；GitHub 明確顯示 `Your repository "Sixteenpct/xiaorichang" was successfully deleted.`。
 - 兩個舊 Repo 已從帳號 repository 清單移除；舊 GitHub Pages 隨 Repo 刪除退役。

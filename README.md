@@ -1,4 +1,4 @@
-# 生活工坊
+# LiouLiou 生活工坊
 
 LiouLiou 與小雀共同開發的實用工具、小程式與創意作品。
 
@@ -6,7 +6,7 @@ LiouLiou 與小雀共同開發的實用工具、小程式與創意作品。
 
 ## 入口
 
-- [生活工坊](https://sixteenpct.github.io/life_workshop/)
+- [LiouLiou 生活工坊](https://sixteenpct.github.io/life_workshop/)
 - [小棉倉](https://sixteenpct.github.io/life_workshop/xiaomiancang/)：衛生棉庫存、補貨與使用記錄。
 - [小日倉](https://sixteenpct.github.io/life_workshop/xiaorichang/)：生活用品、位置與保存期限管理。
 

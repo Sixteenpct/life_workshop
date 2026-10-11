@@ -1,4 +1,4 @@
-# 生活工坊｜小雀接手入口
+# LiouLiou 生活工坊｜小雀接手入口
 
 1. 先從最新預設分支讀 `Sixteenpct/dev_garden/CHATGPT_GLOBAL_WORKFLOW_RULES.md` 及 `CHATGPT_GIT_GLOBAL_RULES.md`。
 2. 讀本 Repo 的 `README.md → docs/MIGRATION_STATUS.md → docs/MIGRATION_SOURCES.json`，確認最新 main 及實際部署狀態。
