@@ -27,7 +27,7 @@ Pages 已部署；完整驗收狀態與待本人測試項目請讀 [施工紀錄
 ## 資料保護
 
 此次只整合 Repo 與網站部署。原 Supabase 專案、資料表、RLS、帳號、使用者資料與本機快取識別都不變。
-兩個舊 Repo 及舊網站保留；未經另一次本人核准，不得刪除、封存、停用或強制重新導向。
+2026-10-11 本人回報新站驗收正常並另行核准退役；兩個舊 Repo 已刪除，舊 Pages 退役。詳見 [退役紀錄](docs/RETIREMENT_20261011.md)。
 同一瀏覽器、相同 `sixteenpct.github.io` origin 的本機儲存不因子路徑而分割。登入仍使用原本的帳號密碼流程。
 公開頁面僅含原本的 Supabase publishable key；不得加入私人 token、密碼或 service role key。
 

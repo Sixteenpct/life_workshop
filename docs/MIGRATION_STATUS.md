@@ -1,6 +1,10 @@
 # 搬遷驗收｜2026-10-11
 
-狀態：MIGRATED / PAGES_DEPLOYED / AUTHENTICATED_FUNCTIONS_AND_MOBILE_RUNTIME_PENDING。
+狀態：MIGRATED / PAGES_DEPLOYED / USER_ACCEPTANCE_CONFIRMED / OLD_REPOS_DELETED。
+
+2026-10-11 本人回報「驗收正常 可以刪除舊REPO」，其後另行核准刪除已完成。
+這是本人驗收回報，不將先前代理端未登入／手機未實測項目改寫成代理端測試通過。
+退役詳見 [RETIREMENT_20261011.md](RETIREMENT_20261011.md)；下方舊站保留描述為最初搬遷 checkpoint 的歷史狀態。
 
 後續介面更新：[UI_CHANGES_20261011.md](UI_CHANGES_20261011.md)。
 以下原檔／tree／HTTP bytes 一致性驗證描述首次搬遷 checkpoint；
