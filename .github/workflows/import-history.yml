@@ -1,0 +1,53 @@
+name: Import original Git histories
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-history.yml'
+      - 'docs/history/*.bundle'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: life-workshop-history-import
+  cancel-in-progress: false
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Import verified source objects and attach unsquashed histories
+        shell: bash
+        run: |
+          set -euo pipefail
+          baseline=$(git rev-parse HEAD)
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          import_source() {
+            local app="$1" sha="$2" count="$3"
+            if git merge-base --is-ancestor "$sha" HEAD 2>/dev/null; then
+              echo "$app history is already attached"
+              return
+            fi
+            git bundle verify "docs/history/$app.bundle"
+            git fetch "docs/history/$app.bundle" "refs/heads/main:refs/remotes/migration/$app"
+            test "$(git rev-parse refs/remotes/migration/$app)" = "$sha"
+            test "$(git rev-list --count "$sha")" = "$count"
+            test "$(git rev-parse HEAD:$app)" = "$(git rev-parse "$sha^{tree}")"
+            mainline=$(git rev-parse HEAD)
+            git merge -s ours --no-commit --allow-unrelated-histories "$sha"
+            git commit -m "Import $app as unsquashed subtree" -m "git-subtree-dir: $app
+          git-subtree-mainline: $mainline
+          git-subtree-split: $sha"
+            git merge-base --is-ancestor "$sha" HEAD
+            test "$(git rev-parse HEAD:$app)" = "$(git rev-parse "$sha^{tree}")"
+          }
+          import_source xiaomiancang 7351dd92ec5899350952ba7cb5ed00be5042976a 19
+          import_source xiaorichang 617bc719f8803a127fe57571b671fbb739b261bf 8
+          if test "$(git rev-parse HEAD)" != "$baseline"; then
+            remote_head=$(git ls-remote origin refs/heads/main | cut -f1)
+            test "$remote_head" = "$baseline"
+            git push origin HEAD:main
+          fi

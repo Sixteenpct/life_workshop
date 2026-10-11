@@ -2,10 +2,46 @@
 
 LiouLiou 與小雀共同開發的實用工具、小程式與創意作品。
 
-本 Repo 為獨立應用程式與創作工坊，不隸屬 life_base 人生資料治理體系。
+這是獨立的應用程式與創作工坊，不隸屬於 `life_base` 的人生資料治理體系。
 
-搬遷施工中，尚未部署。舊 Repo、舊網站與 Supabase 保留。
+## 入口
 
-來源基線：
-- 小棉倉：7351dd92ec5899350952ba7cb5ed00be5042976a（19 commits）
-- 小日倉：617bc719f8803a127fe57571b671fbb739b261bf（8 commits）
+- [生活工坊](https://sixteenpct.github.io/life_workshop/)
+- [小棉倉](https://sixteenpct.github.io/life_workshop/xiaomiancang/)：衛生棉庫存、補貨與使用記錄。
+- [小日倉](https://sixteenpct.github.io/life_workshop/xiaorichang/)：生活用品、位置與保存期限管理。
+
+網址為預定 Pages 路徑；實際部署與驗收狀態請讀 [施工紀錄](docs/MIGRATION_STATUS.md)。
+
+## 目錄與維護
+
+- `index.html`：工坊入口，純 HTML/CSS，無資料存取。
+- `xiaomiancang/index.html`、`xiaorichang/index.html`：各自獨立的原應用程式。
+- `CHATGPT_BOOTSTRAP.md`：小雀接手入口。
+- `docs/MIGRATION_SOURCES.json`：來源 SHA、全部原 commit、檔案與 bundle 指紋。
+- `docs/history/`：兩套完整 Git bundle；保留原 SHA、作者、日期及 parent graph。
+
+沒有 build 或 npm 安裝需求。GitHub Pages 使用 `main` 根目錄，`.nojekyll` 保留靜態站部署行為。
+新增作品時建立自己的子目錄，再加入首頁入口；不強行合併應用程式。
+
+## 資料保護
+
+此次只整合 Repo 與網站部署。原 Supabase 專案、資料表、RLS、帳號、使用者資料與本機快取識別都不變。
+兩個舊 Repo 及舊網站保留；未經另一次本人核准，不得刪除、封存、停用或強制重新導向。
+同一瀏覽器、相同 `sixteenpct.github.io` origin 的本機儲存不因子路徑而分割。登入仍使用原本的帳號密碼流程。
+公開頁面僅含原本的 Supabase publishable key；不得加入私人 token、密碼或 service role key。
+
+## Git 歷史
+
+採用不 squash 的 subtree 方式：原檔放入對應子目錄，匯入 bundle 中的原 Git objects，
+再建立保留來源 HEAD 作為第二親的合併 commit。所有來源 commit 須成為新 `main` 的 ancestor 才算完成。
+`.github/workflows/import-history.yml` 是一次性歷史匯入程序，附有版本、數量、tree 一致性與非強制 push 檢查。
+已匯入的來源會直接略過；它不修改來源 Repo 或 Supabase，也不執行正式資料測試。
+
+追溯匯入前路徑可使用：
+
+```bash
+git log 7351dd92ec5899350952ba7cb5ed00be5042976a -- index.html
+git log 617bc719f8803a127fe57571b671fbb739b261bf -- index.html
+```
+
+來源在原 commit 的路徑仍是 `index.html`，不可把只顯示新子目錄的 log 當成完整歷史。

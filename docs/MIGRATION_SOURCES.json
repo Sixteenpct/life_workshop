@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-11",
+  "strategy": "unsquashed subtree merge with original Git objects transported by verified bundles",
+  "source_repositories_read_only": true,
+  "supabase_changes": false,
+  "sources": [
+    {
+      "repository": "Sixteenpct/xiaomiancang",
+      "source_main": "7351dd92ec5899350952ba7cb5ed00be5042976a",
+      "source_tree": "627c7e216062320deeddd60ccdc193120817247a",
+      "original_commits": [
+        "4fba3c6a3601b6018ecbb7e004399db8525e58ed",
+        "f6409abafca083f2cf66de29c970f55dd748358d",
+        "031c29978f6f95448d9c161aa8257f1433f06209",
+        "ea805577832e28c15cc82bb02b142435c84d44d5",
+        "7ef52f807a76644c08261813e7545719fdd1abf7",
+        "d2e0a58956323f3d0c0a6a56bfa034b84a8251c1",
+        "8b3b004aa2654ae74175b9ff6cd34dd8bc698ee8",
+        "10a2902493192ceeb4302562a3f5ea82d307c60c",
+        "57aa97ad65dfa6852bbc701401badc40feb06d70",
+        "3c7fc4337c259a10a258afa0206f4e0fd464e687",
+        "e2f46371e1465cd6cb59cac0e6e7a4da66ad2985",
+        "94a8058ace45ce2e6480d9e368f9e29661f91c5c",
+        "ac3545be1912f1f48bb2c41c94841bf49a16af61",
+        "c0313085fcffc32e4ea8ec2481ca99471fd4378f",
+        "4cb99565ddaad2910adbe2c17c7e76d0a7ecf66d",
+        "792fe186d371a95efd827bd4f934385c49f4d6d8",
+        "d7cbcd37872732f36fb9789c6324324420b5e411",
+        "9e4830cbe455e07053fa42d95b4964ec6f26c196",
+        "7351dd92ec5899350952ba7cb5ed00be5042976a"
+      ],
+      "commit_count": 19,
+      "bundle_sha256": "ecd28cd60936fb8282dbf253d13051be3292b94e5e9463df76435de6d5172052",
+      "index_sha256": "9d0dd28b276f2ec34fa9f0216d6a3262577953a5bfe69ee06ae9db2426445763"
+    },
+    {
+      "repository": "Sixteenpct/xiaorichang",
+      "source_main": "617bc719f8803a127fe57571b671fbb739b261bf",
+      "source_tree": "dc7d13da9bf9e2146ef17e78a98dc0eb5c93445f",
+      "original_commits": [
+        "9765735393b5264c7560b03d5b2a020853e14502",
+        "f5d829439d28b9672194968155fe33403f7ad82b",
+        "016b0103f45729b3a4ca7cadd3d77bb418577455",
+        "275b2fa7a92cc819192dde165e77d30158ead99c",
+        "490bac6cf216ef526f3f000978a566f726a2b708",
+        "c7f5b8eef1ad5e603154096550c056ab73fd62ac",
+        "ddcef0627c51c356be985ecb88db3e3e6f5b5a20",
+        "617bc719f8803a127fe57571b671fbb739b261bf"
+      ],
+      "commit_count": 8,
+      "bundle_sha256": "20b51b7fdd2ab1c26661e4f7cad69eac61e03e666ccb67be1c44001b2c268fd2",
+      "index_sha256": "81d7088458ee5ac11f28a7f65234acf7d1211f099042c2d9ac1d866ee5ecf8b1"
+    }
+  ]
+}
