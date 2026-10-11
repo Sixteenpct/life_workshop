@@ -10,7 +10,7 @@ LiouLiou 與小雀共同開發的實用工具、小程式與創意作品。
 - [小棉倉](https://sixteenpct.github.io/life_workshop/xiaomiancang/)：衛生棉庫存、補貨與使用記錄。
 - [小日倉](https://sixteenpct.github.io/life_workshop/xiaorichang/)：生活用品、位置與保存期限管理。
 
-網址為預定 Pages 路徑；實際部署與驗收狀態請讀 [施工紀錄](docs/MIGRATION_STATUS.md)。
+Pages 已部署；完整驗收狀態與待本人測試項目請讀 [施工紀錄](docs/MIGRATION_STATUS.md)。
 
 ## 目錄與維護
 
@@ -34,8 +34,10 @@ LiouLiou 與小雀共同開發的實用工具、小程式與創意作品。
 
 採用不 squash 的 subtree 方式：原檔放入對應子目錄，匯入 bundle 中的原 Git objects，
 再建立保留來源 HEAD 作為第二親的合併 commit。所有來源 commit 須成為新 `main` 的 ancestor 才算完成。
-`.github/workflows/import-history.yml` 是一次性歷史匯入程序，附有版本、數量、tree 一致性與非強制 push 檢查。
-已匯入的來源會直接略過；它不修改來源 Repo 或 Supabase，也不執行正式資料測試。
+一次性歷史匯入已成功，原程序已移至 `docs/history/import-history.workflow.yml` 留存，
+不再置於啟用中的 workflow 目錄。程序包含版本、數量、tree 一致性與非強制 push 檢查。
+全部 27 個原 commit 已成為新 main 的 ancestor，原 SHA 與 parent graph 均保留。
+程序未修改來源 Repo 或 Supabase，也未執行正式資料修改測試。
 
 追溯匯入前路徑可使用：
 
