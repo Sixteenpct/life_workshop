@@ -22,6 +22,15 @@ FF14 參考：`Sixteenpct/ffxiv_journey@9b25840416a18266475345290510f991e09ca6f5
 
 ## 部署後驗收
 
-以最新保存 commit 的 Pages 實際部署與三頁瀏覽器檢查為準。
+介面 checkpoint：`4b4f9c629c7acf2e61bd8ee440335d697a1cd56d`。
+
+- GitHub Pages run `38142774869`：completed / success，部署 commit 與介面 checkpoint 一致。
+- 九個修改／新增檔案從遠端讀回逐位元相同；兩個來源 HEAD 仍是 main 的 ancestor。
+- 首頁實際瀏覽器 1363 × 936：scrollHeight = 936，footer bottom = 924；整頁不需垂直捲動，footer 11.48px 置中，原始碼入口已移除。
+- 實際點選兩張卡片均開啟不同新分頁，三頁網址與頁面標題正常。
+- 兩小倉麵包屑 x = 107.5，與原標題橫幅 x = 107.5 對齊；footer 置中、11.48px。
+- 按鈕實際套用 13px、750 字重、8.2px 圓角及工坊藍／綠色；共用 180ms script 路徑正常。
+- 兩小倉登入窗正常顯示；未提供安全登入狀態，不宣稱已通過登入後資料、同步或實際長頁捲動。
+- 手機規則已加入單欄與固定導覽避讓；此瀏覽器未提供 viewport 調整功能，手機實機畫面仍待驗收。
 登入後庫存／記錄／同步仍需安全登入狀態；本次不修改正式資料、Supabase、舊 Repo 或舊站。
 原 MIGRATION_SOURCES.json 的 tree／index 指紋代表最初搬遷基線；本次已授權的介面修改不覆寫歷史來源證據。
