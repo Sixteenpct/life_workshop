@@ -1,0 +1,72 @@
+name: Supabase Data API Keepalive
+# Dedicated read-only RPC. Never reads app_state or xiaorichang_state.
+# Scheduled times: 08:17, 14:17, 20:17 Asia/Taipei (UTC+8).
+on:
+  schedule:
+    - cron: "17 0,6,12 * * *"
+    # Weekly maintenance avoids GitHub's 60-day inactivity disabling public schedules.
+    - cron: "41 3 * * 1"
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/supabase-data-api-keepalive.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  data-api-ping:
+    if: github.event_name != 'schedule' || github.event.schedule != '41 3 * * 1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: GET read-only Supabase database RPC
+        shell: bash
+        env:
+          SUPABASE_URL: https://nucdccpownpihbsiixdt.supabase.co
+          # Public publishable key only (already in the static web app).
+          SUPABASE_PUBLISHABLE_KEY: sb_publishable_F8Y5Qw_u_s01Q1kynvYdDw_mSkoxZS6
+        run: |
+          set -euo pipefail
+          response_file="$(mktemp)"
+          trap 'rm -f "$response_file"' EXIT
+          response_code="$(curl --silent --show-error \
+            --max-time 25 --retry 2 --retry-delay 3 \
+            --output "$response_file" --write-out '%{http_code}' \
+            --header "apikey: $SUPABASE_PUBLISHABLE_KEY" \
+            --header "Accept: application/json" \
+            "$SUPABASE_URL/rest/v1/rpc/liouliou_keepalive")"
+          payload="$(tr -d '\r\n\t ' < "$response_file")"
+          if [[ "$response_code" != '200' || "$payload" != '1' ]]; then
+            echo "Supabase Data API ping FAILED: HTTP $response_code, expected JSON integer 1" >&2
+            exit 1
+          fi
+          echo "Supabase Data API GET passed: HTTP 200 and RPC returned 1."
+
+  keep-schedule-enabled:
+    # Public-repo scheduled workflows may be disabled after 60 days without commits.
+    # Only make a harmless empty commit if main has been inactive for >= 35 days.
+    if: github.event_name == 'schedule' && github.event.schedule == '41 3 * * 1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Prevent schedule deactivation without touching site files
+        shell: bash
+        run: |
+          set -euo pipefail
+          last_commit_epoch="$(git log -1 --format=%ct)"
+          now_epoch="$(date +%s)"
+          if (( now_epoch - last_commit_epoch < 35 * 86400 )); then
+            echo "Recent repository activity; no maintenance commit needed."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit --allow-empty -m "chore: preserve Supabase health-check schedule"
+          git push origin HEAD:main
